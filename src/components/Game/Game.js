@@ -41,7 +41,7 @@ function Game() {
           onRestartGame={onRestartGame}
         />
       )}
-      <Guesses guesses={guesses} checkedGuesses={checkedGuesses} />
+      <Guesses guesses={checkedGuesses} />
       <GuessInput onAddGuess={onAddGuess} disabled={gameEnded} />
     </>
   );

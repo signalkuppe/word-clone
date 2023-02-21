@@ -1,20 +1,21 @@
 import React from "react";
 import { range } from "../../utils";
 
-function Guess({ guess, checkedGuesses }) {
+function Guess({ guess }) {
   function letterClass(index) {
     const baseClass = "cell";
-    if (!guess || !checkedGuesses[index]) {
+    if (!guess) {
       return baseClass;
     }
 
-    return `${baseClass} ${checkedGuesses[index].status}`;
+    return `${baseClass} ${guess[index]?.status}`;
   }
+
   return (
     <p className="guess">
       {range(5).map((index) => (
-        <span className={letterClass(index)} key={index}>
-          {guess.charAt(index) || ""}
+        <span key={index} className={letterClass(index)}>
+          {guess[index]?.letter || ""}
         </span>
       ))}
     </p>
